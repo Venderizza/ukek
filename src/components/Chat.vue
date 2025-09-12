@@ -1,5 +1,5 @@
 <template>
-  <div class=" w-auto mt-8 md:mt-20 flex flex-col items-center justify-center">
+  <div class="w-auto mt-8 md:mt-20 flex flex-col items-center justify-center">
 
     <div class="flex gap-3 justify-center">
 
@@ -12,9 +12,9 @@
 
     </div>
 
-    <form @submit.prevent="checkTextIsEmpty"
+    <form @submit.prevent="sendIfTextNotEmpty"
       class="mt-5 flex justify-between bg-primary-light py-3 px-5 border-primary-yellow 
-      border-1 rounded-2xl md:w-[525px] w-full min-h-[80px] chat-shadow">
+      border-1 rounded-2xl md:w-2xl w-full min-h-[90px] chat-shadow">
       
       <textarea v-model="quetion" 
         ref="textarea" 
@@ -44,8 +44,9 @@
 
   </div>
 
-
 </template>
+
+
 
 <script setup>
 import { ref, onMounted,  nextTick } from 'vue'
@@ -56,12 +57,10 @@ const message = ref("");
 const quetion = defineModel();
 const textarea = ref(null);
 
-const checkTextIsEmpty = () => {
+const sendIfTextNotEmpty = () => {
   if (quetion.value != ""){
-    handleSendQuetion();
-  }
-  else {
     message.value = 'Думаю...';
+    handleSendQuetion();
   }
 }
 
@@ -69,22 +68,22 @@ const handleSendQuetion = async () => {
   try {
     await api.post('/query', {
       text: quetion.value,
-      service: "vr",
+      service: "oldsaratov",
       source: "тг",
       chat_id: "1234"
     });
     message.value = '';
+    quetion.value = '';
 
   } catch (err) {
-    console.log(err);
-    message.value = err.response?.data?.message || 'Пока не могу ответить';
+    message.value = 'Пока не могу Вам ответить';
   }
 };
 
 
 
 const lineHeight = 24;
-const maxRows = 4;
+const maxRows = 5;
 const maxHeight = lineHeight * maxRows;
 
 const resizeTextarea = () => {
@@ -104,10 +103,6 @@ onMounted(() => {
 
 const onChange = (value) => {
   quetion.value = value;
-};
-
-const onKeyPress = (button) => {
-  console.log("button", button);
 };
 
 const onInputChange = (event) => {

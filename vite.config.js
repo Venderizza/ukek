@@ -1,19 +1,19 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import tailwindcss from '@tailwindcss/vite'
 
-export default defineConfig({
-  plugins: [
-    tailwindcss(),
-    vue()
-  ],
+export default defineConfig(({ mode }) => {
 
-  server: {
-    proxy: {
-      '/query': {
-        target: 'http://78.24.223.82:8009',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
+  const env = loadEnv(mode, process.cwd(), '')
+
+  return {
+    plugins: [tailwindcss(), vue()],
+    server: {
+      proxy: {
+        '/query': {
+          target: env.VITE_API_PROXY_TARGET,
+          changeOrigin: true,
+        }
       }
     }
   }
