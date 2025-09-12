@@ -2,7 +2,7 @@
 
 @layer components {
   body {
-    font-family: 'Roboto Condensed';
+    font-family: 'Roboto Condensed', sans-serif;
   }
 
   .chat-shadow {
@@ -26,20 +26,28 @@
     scrollbar-color: var(--color-primary-lightyellow) var(--color-primary-light);
     scrollbar-width: thin;
   }
+  
+  .hg-theme-default {
+    background-color: #fdf9dc !important;
+  }
+
+  .hg-standardBtn span {
+    color: var(--color-primary-lightbrown) !important;
+  }
 }
 
 
 @font-face {
-  font-family: 'Roboto Condensed', sans-serif;
-  src: url('assets/fonts/static/RobotoCondensed-Regular.ttf') format('ttf');
+  font-family: 'Roboto Condensed';
+  src: url('/fonts/static/RobotoCondensed-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Roboto Condensed', sans-serif;
-  src: url('assets/fonts/static/RobotoCondensed-SemiBold.ttf') format('ttf');
+  font-family: 'Roboto Condensed';
+  src: url('/fonts/static/RobotoCondensed-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
