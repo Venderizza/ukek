@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@layer components {
+  body {
+    font-family: 'Roboto Condensed';
+  }
+
+  .chat-shadow {
+    box-shadow: -14px 12px 30.8px -4px rgba(254, 219, 63, 0.18);
+  }
+
+  .send-circle {
+    transition: all 0.2s ease-in;
+    fill: var(--color-primary-yellow)
+  }
+
+  button:hover .send-circle {
+    fill: var(--color-primary-darkyellow)
+  }
+
+  button:hover:focus .send-circle {
+    fill: var(--color-primary-darkyellow)
+  }
+
+  textarea {
+    scrollbar-color: var(--color-primary-lightyellow) var(--color-primary-light);
+    scrollbar-width: thin;
+  }
+}
+
+
+@font-face {
+  font-family: 'Roboto Condensed', sans-serif;
+  src: url('assets/fonts/static/RobotoCondensed-Regular.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed', sans-serif;
+  src: url('assets/fonts/static/RobotoCondensed-SemiBold.ttf') format('ttf');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-primary-yellow: #FED938;
+  --color-primary-lightyellow: #fff29e;
+  --color-primary-darkyellow: #EEBA0E;
+  --color-primary-light: #FFFEF8;
+
+  --color-primary-brown: #393231;
+  --color-primary-lightbrown: #6C5E5C;
+
+}
