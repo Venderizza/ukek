@@ -11,9 +11,6 @@ const api = axios.create({
 
 export default api;
 
-
-
-
 const target = import.meta.env.VITE_API_PROXY_TARGET;
 
 api.interceptors.request.use((config) => {
