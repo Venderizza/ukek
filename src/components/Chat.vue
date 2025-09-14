@@ -66,11 +66,9 @@ const sendIfTextNotEmpty = () => {
 
 const handleSendQuetion = async () => {
   try {
-    await api.post('/query', {
-      text: quetion.value,
-      service: "oldsaratov",
-      source: "тг",
-      chat_id: "1234"
+    await api.post('/message', {
+      chat_id: "12345",
+      text: quetion.value
     });
     message.value = '';
     quetion.value = '';
