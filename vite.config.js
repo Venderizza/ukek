@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => {
     plugins: [tailwindcss(), vue()],
     server: {
       proxy: {
-        '/query': {
+        '/message': {
           target: env.VITE_API_PROXY_TARGET,
           changeOrigin: true,
         }
