@@ -9,6 +9,10 @@
     box-shadow: -14px 12px 30.8px -4px rgba(254, 219, 63, 0.18);
   }
 
+  .message-shadow {
+    box-shadow: -8px 10px 8px -4px rgba(254, 219, 63, 0.1);
+  }
+
   .send-circle {
     transition: all 0.2s ease-in;
     fill: var(--color-primary-yellow)
@@ -26,13 +30,29 @@
     scrollbar-color: var(--color-primary-lightyellow) var(--color-primary-light);
     scrollbar-width: thin;
   }
-  
+
   .hg-theme-default {
     background-color: #fdf9dc !important;
   }
 
   .hg-standardBtn span {
     color: var(--color-primary-lightbrown) !important;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out forwards;
   }
 }
 
